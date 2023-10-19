@@ -10,29 +10,35 @@ entityManager = JPAUtil.getEntityManager();
 }
 //retrival
 @Override
-public Student getStudentById(int id) {
-Student student = entityManager.find(Student.class, id);//no sql query
-return student;
+public void addStudent(Student student)
+{
+	entityManager.persist(student);//no sql queries
 }
 @Override
-public void addStudent(Student student) {
-entityManager.persist(student);
+public Student getStudentById(int id)
+{
+	Student student= entityManager.find(Student.class, id);
+	return student;
 }
 @Override
-public void removeStudent(Student student) {
-entityManager.remove(student);
+public void updateStudent(Student student)
+{
+	entityManager.merge(student);
 }
 @Override
-public void updateStudent(Student student) {
-entityManager.merge(student);
+public void removeStudent(Student student)
+{
+	entityManager.remove(student);
 }
 @Override
-public void beginTransaction() {
-entityManager.getTransaction().begin();
+public void commitTransaction()
+{
+	entityManager.getTransaction().commit();
 }
 @Override
-public void commitTransaction() {
-entityManager.getTransaction().commit();
-	
+public void beginTransaction()
+{
+	entityManager.getTransaction().begin();
 }
+
 }

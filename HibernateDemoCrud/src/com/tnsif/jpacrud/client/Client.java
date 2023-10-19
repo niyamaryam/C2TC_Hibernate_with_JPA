@@ -8,16 +8,16 @@ public static void main(String[] args) {
 StudentService service = new StudentServiceImpl();
 Student student = new Student();
 // Create Operation
-student.setStudentId(100);
-student.setName("Sachin");
-service.addStudent(student);
+//student.setStudentId(100);
+//student.setName("Sachin");
+//service.addStudent(student);
 
 
 //at this breakpoint, we have added one record to table
 
 
 // Retrieve Operation
-student = service.findStudentById(100);
+student = service.findStudentById(103);
 System.out.print("ID:"+student.getStudentId());
 System.out.println(" Name:"+student.getName());
 
